@@ -1,0 +1,10 @@
+.body{
+    border:1px solid red;
+    flex:0.8;
+    height: 100vh;
+    color:white;
+    /* background-color: rgb(91,87,115); */
+    /* background-color: rgb(80, 40, 240); */
+    /* background: linear-gradient(transparent, rgba(rgb(91,87,115),black)); */
+    background-image:linear-gradient(rgba(0,0,0,.6) 0,#121212 100%);
+}
