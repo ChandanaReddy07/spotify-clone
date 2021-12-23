@@ -5,7 +5,7 @@ const Login = () => {
     return (
      
         <div className="login">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTekGypvUL21krLxR7paDJhTLQc-Ekoe1bKmwpeOoHGwdVoGReDQQ0BqcbnVxPZExZJUZY&usqp=CAU" alt="logoi"/>
+            <img src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg" alt="logoi"/>
             <a href={loginUrl}>Login with spotify</a>
         </div>
     )

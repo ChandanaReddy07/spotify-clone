@@ -10,8 +10,8 @@ const spotify = new SpotifyWebApi();
 
 function App() {
 
-  const [token, setToken] = useState(null)
-  const [{},dispatch] = useDataLayerValue();
+  // const [token, setToken] = useState(null)
+  const [{token }, dispatch] = useDataLayerValue();
 
   //run a codde based on a condition
   useEffect(() => {
@@ -20,32 +20,46 @@ function App() {
     const _token = hash.access_token;
 
     if (_token) {
-      setToken(_token);
-
-   
-
+      {
+       
       spotify.setAccessToken(_token);
-      spotify.getMe().then(user =>{
-        console.log('🐼',user);  
-        
+       
+      }
+
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
+      spotify.getMe().then(user => {
+        console.log('🐼', user);
         dispatch({
-          type:'SET_USER',
+          type: 'SET_USER',
           user: user
         })
       });
 
-      spotify.getUserPlaylists().then((playlists)=>{
+      spotify.getUserPlaylists().then((playlists) => {
+        console.log(" token>>>>", playlists);
+
         dispatch({
-          type:"SET_PLAYLIST",
-          playlists:playlists
+          type: "SET_PLAYLISTS",
+          playlists: playlists
 
         })
       })
 
+      spotify.getPlaylist('37i9dQZEVXcDr8VCEr2JYG').then(response => {
+        console.log("response>>>>", response)
+        dispatch({
+          type: 'SET_DISCOVER',
+          discover_weekly: response
+
+        })
+      })
     }
 
     console.log("i have a token>>>>", token);
-  }, [])
+  },  [token, dispatch])
   return (
     <div className="App">
       {

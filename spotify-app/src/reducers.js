@@ -1,30 +1,59 @@
-export const initialState={
-    user:null,
-    playlists:[],
-    playing:false,
-    item:null,
-    token:null
+export const initialState = {
+    user: null,
+    playlists: [],
+    spotify: null,
+    playing: false,
+    discover_weekly: null,
+    token: null,
+    item: null,
+
 }
 
-const reducer =(state,action)=>{
-console.log(action);
+const reducer = (state, action) => {
+    console.log(action);
 
-// action -> type and [payload]
+    // action -> type and [payload]
 
-switch(action.type){
-    case 'SET_USER':
-        return {
-            ...state,
-            user:action.user
-        }
-    case 'SET_PLAYLIST':
-        return {
-            ...state,
-            playlists:action.playlists
-        }
-        default: 
-        return state;
-}
+    switch (action.type) {
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
+        case 'SET_TOKEN':
+            return {
+                ...state,
+                token: action.token
+            }
+        case 'SET_PLAYLISTS':
+            return {
+                ...state,
+                playlists: action.playlists
+            }
+        case "SET_ITEM":
+            return {
+                ...state,
+                item: action.item,
+            };
+        case "SET_PLAYING":
+            return {
+                ...state,
+                playing: action.playing,
+            };
+        case "SET_SPOTIFY":
+            return {
+                ...state,
+                spotify: action.spotify,
+            };
+
+        case 'SET_DISCOVER':
+            return {
+                ...state,
+                discover_weekly: action.discover_weekly
+            }
+        default:
+            return state;
+    }
 }
 
 export default reducer;

@@ -23,14 +23,14 @@ export const getTokenFromUrl = () => {
     .reduce((initial,item)=>{
         let parts= item.split('=');
         initial[parts[0]]= decodeURIComponent(parts[1]);
-
         return initial;
 
     },{})
 }
-
-export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
-
+export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+    "%20"
+  )}&response_type=token&show_dialog=true`;
+ 
 // import React from 'react'
 
 // const spotify = () => {
